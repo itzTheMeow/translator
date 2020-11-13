@@ -1,0 +1,12 @@
+body {
+  background-color: #2C2F33;
+  color: White;
+  text-align: center;
+}
+#changelog {
+  position: absolute;
+  background-color: #23272A;
+  width: 12%;
+  height: 40%;
+  border-radius: 6px;
+}
