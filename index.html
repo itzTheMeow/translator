@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Translate the secret language!</title>
+    <title>Translate the E language!</title>
 
     <link rel="icon" href="https://img.icons8.com/color/48/000000/e.png" />
 
@@ -16,14 +16,17 @@
       <span id="chng">Changelog</span>
       <pre>
 4/14/2020
-- Added this changelog.</pre
+- Added this changelog. 
+11/13/2020
+- Removed verification.
+</pre
       >
     </div>
 
     <textarea
       id="input"
       onkeyup="to()"
-      style="width: 350px; height: 250px;"
+      style="width: 350px; height: 250px"
       placeholder="Translate to EEE"
     ></textarea>
     <span id="count1">0</span>
@@ -31,7 +34,7 @@
     <textarea
       id="output"
       onkeyup="from()"
-      style="width: 350px; height: 250px;"
+      style="width: 350px; height: 250px"
       placeholder="Translate to English"
     ></textarea>
     <span id="count2">0</span>
@@ -39,32 +42,16 @@
     <button onclick="to()">&nbsp;Translate to EEE&nbsp;</button>
     <button onclick="from()">Translate to English</button>
     <br />
-    <button onclick="paste('input', 'paste1')" id="paste1">
-      Paste to Input
-    </button>
-    <b id="paste" style="display: none;">Pasted!</b>
-    <button onclick="paste('output', 'paste2')" id="paste2">
-      Paste to Output
-    </button>
+    <button onclick="paste('input', 'paste1')" id="paste1">Paste to Input</button>
+    <b id="paste" style="display: none">Pasted!</b>
+    <button onclick="paste('output', 'paste2')" id="paste2">Paste to Output</button>
     <br />
     <button onclick="copy('input', 'copy1')" id="copy1">Copy Input</button>
-    <b id="copy" style="display: none;">Copied!</b>
+    <b id="copy" style="display: none">Copied!</b>
     <button onclick="copy('output', 'copy2')" id="copy2">Copy Output</button>
     <br />
     <button onclick="cut('input', 'cut1')" id="cut1">Cut Input</button>
-    <b id="cut" style="display: none;">Cut!</b>
+    <b id="cut" style="display: none">Cut!</b>
     <button onclick="cut('output', 'cut2')" id="cut2">Cut Output</button>
   </body>
-
-  <noscript>
-    <meta
-      http-equiv="refresh"
-      content="0; url=https://translatorthing.glitch.me/verify"
-    />
-  </noscript>
-  <script>
-    let keys = ["M30W", "wumpussy"];
-    let key = localStorage.getItem("auth") || "ERR";
-    if (!keys.includes(key)) window.location.href = "/verify";
-  </script>
 </html>
