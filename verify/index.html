@@ -1,0 +1,8 @@
+<title>Enter verification code...</title>
+Error. Please refresh the page or enable JavaScript.
+<script>
+  let code =
+    prompt("Enter the verification key you received from meow.") || "ERR";
+  localStorage.setItem("auth", code);
+  window.location.href = "/";
+</script>
