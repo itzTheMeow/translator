@@ -51,16 +51,16 @@ let dictionary = {
   y: "EeeeE",
   Z: "eEEEe^",
   z: "eEEEe",
-  "1": "Ee",
-  "2": "EeEe",
-  "3": "EeEeEe",
-  "4": "EeEeEeEe",
-  "5": "EeEeEeEeEe",
-  "6": "EeEeEeEeEeEe",
-  "7": "EeEeEeEeEeEeEe",
-  "8": "EeEeEeEeEeEeEeEe",
-  "9": "EeEeEeEeEeEeEeEeEe",
-  "0": "EeEeEeEeEeEeEeEeEeEe",
+  1: "Ee",
+  2: "EeEe",
+  3: "EeEeEe",
+  4: "EeEeEeEe",
+  5: "EeEeEeEeEe",
+  6: "EeEeEeEeEeEe",
+  7: "EeEeEeEeEeEeEe",
+  8: "EeEeEeEeEeEeEeEe",
+  9: "EeEeEeEeEeEeEeEeEe",
+  0: "EeEeEeEeEeEeEeEeEeEe",
   " ": "E",
   "/": "EEEEEEEEeeeeeEEEEee",
   $: "EEEeeeEEEEEEEe",
@@ -69,7 +69,7 @@ let dictionary = {
   "\n": "o",
   ":": "EEEEEEEEEEEEEEEEEEEEEeeeeeeeeeeeeeeeeEEE",
   "-": "EEEEeeeEEeEEEE",
-  "*": "EEEEeeeeEEe"
+  "*": "EEEEeeeeEEe",
 };
 let dictionary2 = {
   "e^": "A",
@@ -142,7 +142,7 @@ let dictionary2 = {
   o: "\n",
   EEEEEEEEEEEEEEEEEEEEEeeeeeeeeeeeeeeeeEEE: ":",
   EEEEeeeEEeEEEE: "-",
-  EEEEeeeeEEe: "*"
+  EEEEeeeeEEe: "*",
 };
 
 function to() {
@@ -150,9 +150,9 @@ function to() {
   let words = text.split(" ");
   let string = [];
 
-  words.forEach(word => {
+  words.forEach((word) => {
     let letters = word.split("");
-    letters.forEach(letter => {
+    letters.forEach((letter) => {
       let E = dictionary[letter];
       if (!E) E = letter;
       return string.push(E);
@@ -160,9 +160,7 @@ function to() {
     if (word) string.push(dictionary[" "]);
   });
 
-  document.getElementById("output").value = string
-    .slice(0, string.length - 1)
-    .join(" / ");
+  document.getElementById("output").value = string.slice(0, string.length - 1).join(" / ");
 }
 
 function from() {
@@ -170,9 +168,9 @@ function from() {
   let words2 = text2.split(" / ");
   let string2 = [];
 
-  words2.forEach(word => {
+  words2.forEach((word) => {
     let letters = word.split(" / " + dictionary[" "] + " / ");
-    letters.forEach(letter => {
+    letters.forEach((letter) => {
       let E = dictionary2[letter];
       if (!E) E = letter;
       return string2.push(E);
@@ -183,7 +181,7 @@ function from() {
   to();
 }
 
-setInterval(function() {
+setInterval(function () {
   let c1 = document.getElementById("count1");
   let c2 = document.getElementById("count2");
   let l1 = document.getElementById("input").value.length;
@@ -192,15 +190,11 @@ setInterval(function() {
   c1.innerHTML = l1.toLocaleString();
   c2.innerHTML = l2.toLocaleString();
 
-  if (l1 > 2000)
-    c1.innerHTML = '<b style="color: Red;">' + c1.innerHTML + "</b>";
-  if (l2 > 2000)
-    c2.innerHTML = '<b style="color: Red;">' + c2.innerHTML + "</b>";
+  if (l1 > 2000) c1.innerHTML = '<b style="color: Red;">' + c1.innerHTML + "</b>";
+  if (l2 > 2000) c2.innerHTML = '<b style="color: Red;">' + c2.innerHTML + "</b>";
 
-  if (l1 == 69)
-    c1.innerHTML = '<b style="color: Yellow;">' + c1.innerHTML + "</b>";
-  if (l2 == 69)
-    c2.innerHTML = '<b style="color: Yellow;">' + c2.innerHTML + "</b>";
+  if (l1 == 69) c1.innerHTML = '<b style="color: Yellow;">' + c1.innerHTML + "</b>";
+  if (l2 == 69) c2.innerHTML = '<b style="color: Yellow;">' + c2.innerHTML + "</b>";
 
   let l = document.getElementById("output");
 
@@ -210,17 +204,15 @@ setInterval(function() {
 function copy(item, current) {
   var copyText = document.getElementById(item);
 
-  /* Select the text field */
   copyText.select();
-  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+  copyText.setSelectionRange(0, 99999);
 
-  /* Copy the text inside the text field */
   document.execCommand("copy");
 
   document.getElementById(current).style.display = "none";
   document.getElementById("copy").style.display = "inline";
 
-  setTimeout(function() {
+  setTimeout(function () {
     document.getElementById(current).style.display = "inline";
     document.getElementById("copy").style.display = "none";
   }, 1500);
@@ -228,17 +220,15 @@ function copy(item, current) {
 function cut(item, current) {
   var cutText = document.getElementById(item);
 
-  /* Select the text field */
   cutText.select();
-  cutText.setSelectionRange(0, 99999); /*For mobile devices*/
+  cutText.setSelectionRange(0, 99999);
 
-  /* Cut the text inside the text field */
   document.execCommand("cut");
 
   document.getElementById(current).style.display = "none";
   document.getElementById("cut").style.display = "inline";
 
-  setTimeout(function() {
+  setTimeout(function () {
     document.getElementById(current).style.display = "inline";
     document.getElementById("cut").style.display = "none";
   }, 1500);
@@ -254,7 +244,7 @@ async function paste(item, current) {
   document.getElementById(current).style.display = "none";
   document.getElementById("paste").style.display = "inline";
 
-  setTimeout(function() {
+  setTimeout(function () {
     document.getElementById(current).style.display = "inline";
     document.getElementById("paste").style.display = "none";
   }, 1500);
